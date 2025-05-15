@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking the stylesheet -->
+    <link rel="stylesheet" href="./SCSS/style.css">
+    <!-- Importing google material icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<!----- Creating a responsive nav bar inside the header tag ----->
+<header>
+    <div class="logo">
+        <!-- Adding the png logo image of studio ghibli -->
+        <img src = "./Images/Everwell app.png" alt="">
+    </div>
+    <input type = "checkbox" id = "check_nav" hidden>
+    <nav>
+        <!-- Another logo image to be displayed for the nav bar of smaller viewports -->
+        <div class="logo">
+            <img src = "./Images/Studio_Ghibli.svg" alt="">
+        </div>
+        <ul>
+            <!-- Giving an active class to distinguish the page that is currently open -->
+            <!-- Linking the nav options to the respective html pages -->
+            <li><a href="index.html" class = "active">Home</a></li>
+            <li><a href="Movies.html">Features</a></li>
+            <li><a href="Creators.html">About</a></li>
+            <li><a href="Characters.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <!-- Creating an option to open nav bar on smaller viewports -->
+    <label for="check_nav" class="lines">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+</header>
+<body>
+    <!-- Main content of the page -->
+    <main>
+        <img src="./Images/bgone.png" alt="">
+        <div class="sectionOne"></div>
+        <img src="./Images/bgtwo.png" alt="">
+        <img src="./Images/bgthree.png" alt="">
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>How do I set a medicine reminder?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    You can go to the Reminders section, click "Add Reminder", and choose time, date, and medicine name.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>Can I change the exercise duration?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, in the Exercise section you can set your preferred timer before starting.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>How do I add a bill reminder?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    Go to the Bill Reminders section, tap "Add Reminder", enter the utility name, amount, and due date. You’ll get notified before the due date.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>Can I view places using Street View?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Tap on the Street View feature, search for any location like your hometown or your family's address, and explore it using Google Maps.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>How does voice navigation work?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    Voice navigation uses Google Speech API. Tap the microphone icon and speak your command like “Open Games” or “Show Diet Plans”. The app will respond and switch tabs for you.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>Is there a diet plan for specific health needs?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We provide tailored diet plans for diabetes, heart health, bone strength, and energy. Go to the Diet Plans section and choose what suits you.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>How do I activate the magnifier bubble?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    You can double-tap anywhere on the screen to activate or deactivate the magnifier bubble. It helps enlarge text for better readability.
+                </div>
+            </div>
+
+            <div class="faq-box">
+                <div class="faq-question">
+                    <span>Where can I find exercise videos?</span>
+                    <span class="material-symbols-outlined toggle-icon">add</span>
+                </div>
+                <div class="faq-answer">
+                    In the Exercise section, you'll find embedded YouTube videos curated for seniors. Tap on a video to start your workout along with a built-in timer.
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+
+<script>
+    const questions = document.querySelectorAll('.faq-question');
+
+    questions.forEach(q => {
+        q.addEventListener('click', () => {
+            const box = q.parentElement;
+            const answer = box.querySelector('.faq-answer');
+
+            if (box.classList.contains('active')) {
+                // Close it
+                answer.style.maxHeight = null;
+                box.classList.remove('active');
+            } else {
+                // Close other open answers (optional)
+                document.querySelectorAll('.faq-box.active').forEach(openBox => {
+                    openBox.classList.remove('active');
+                    openBox.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Open this one
+                box.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
+</script>
+
+
+</html>
