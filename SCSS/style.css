@@ -157,7 +157,7 @@ img {
     z-index: 99;
     width: 280px;
     height: 100vh;
-    background-color: skyblue;
+    background-color: #79C6C6;
     transition: 0.2s;
     box-shadow: 2px 0 20px 0 rgba(0, 0, 0, 0.05);
   }
